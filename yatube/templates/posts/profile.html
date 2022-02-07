@@ -25,13 +25,12 @@
           {% endif %}
         {% endif %}
         {% for post in page_obj %}   
-        {% include 'includes/post.html' %}
+        {% include 'posts/includes/post.html' %}
         {% if post.group_id != NULL %}       
         <a href="{% url 'posts:group_list' post.group.slug %}">Все записи группы</a>
         {% endif %}        
         <hr>
         {% endfor %}
-        <!-- Остальные посты. после последнего нет черты -->
         {% include 'posts/includes/paginator.html' %} 
       </div>
 {% endblock %}

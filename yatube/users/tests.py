@@ -16,8 +16,6 @@ class UsersURLTests(TestCase):
         cls.user = User.objects.create_user(username='test_user')
 
     def setUp(self):
-        # Устанавливаем данные для тестирования
-        # Создаём экземпляр клиента. Он неавторизован.
         self.guest_client = Client()
         self.authorized_client = Client()
         self.authorized_client.force_login(self.user)

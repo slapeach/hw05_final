@@ -37,9 +37,10 @@ class Post(CreatedModel):
     )
 
     image = models.ImageField(
-        'Картинка',
         upload_to='posts/',
-        blank=True
+        blank=True,
+        verbose_name='Картинка',
+        help_text='Вы можете загружить картинку к посту'
     )
 
     class Meta:

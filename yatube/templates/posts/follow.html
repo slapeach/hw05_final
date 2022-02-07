@@ -6,7 +6,7 @@
   <div class="container py-5">
     {% include 'posts/includes/switcher.html' %}
       {% for post in page_obj %}
-        {% include 'includes/post.html' %}
+        {% include 'posts/includes/post.html' %}
           {% if post.group_id != NULL %}
             <a href="{% url 'posts:group_list' post.group.slug %}">Все записи группы</a>
           {% endif %}

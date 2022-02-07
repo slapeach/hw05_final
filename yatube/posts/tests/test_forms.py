@@ -13,7 +13,6 @@ class PostFormsTests(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # Создадим запись в БД
         cls.TEST_TEXT = 'Тестовый текст'
         cls.user = User.objects.create_user(username='test_user')
         cls.group = Group.objects.create(
@@ -34,25 +33,20 @@ class PostFormsTests(TestCase):
 
     def test_create_post(self):
         """Валидная форма создает запись в Post."""
-        # Подсчитаем количество записей в Post
         posts_count = Post.objects.count()
         form_data = {
             'text': f'{self.TEST_TEXT}',
             'group': f'{self.group.id}',
         }
-        # Отправляем POST-запрос
         response = self.authorized_client.post(
             reverse('posts:post_create'),
             data=form_data,
             follow=True
         )
-        # Проверяем, сработал ли редирект
         self.assertRedirects(
             response,
             reverse('posts:profile', kwargs={'username': f'{self.user}'}))
-        # Проверяем, увеличилось ли число постов
         self.assertEqual(Post.objects.count(), posts_count + 1)
-        # Проверяем, что создалась запись с данными формы
         self.assertTrue(
             Post.objects.filter(
                 text=f'{self.TEST_TEXT}',
@@ -170,7 +164,6 @@ class CommentFormsTests(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # Создадим запись в БД
         cls.TEST_TEXT = 'Тестовый текст'
         cls.user = User.objects.create_user(username='test_user')
         cls.group = Group.objects.create(

@@ -17,7 +17,6 @@ class PostPagesTests(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # Создадим запись в БД
         small_gif = (
             b'\x47\x49\x46\x38\x39\x61\x02\x00'
             b'\x01\x00\x80\x00\x00\x00\x00\x00'
@@ -294,7 +293,6 @@ class CacheViewsTest(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # Создадим запись в БД
         new_small_gif = (
             b'\x47\x49\x46\x38\x39\x61\x02\x00'
             b'\x01\x00\x80\x00\x00\x00\x00\x00'
@@ -347,7 +345,6 @@ class FollowViewsTest(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # Создадим запись в БД
         cls.user = User.objects.create_user(username='test_follower')
         cls.user_2 = User.objects.create_user(username='test_following')
         cls.user_3 = User.objects.create_user(username='test_not_follower')

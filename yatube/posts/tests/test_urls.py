@@ -13,7 +13,6 @@ class PostURLTests(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # Создадим запись в БД
         cls.user = User.objects.create_user(username='test_user')
         cls.group = Group.objects.create(
             title='Тестовая группа',

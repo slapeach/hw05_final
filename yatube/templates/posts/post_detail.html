@@ -7,10 +7,9 @@
             <li class="list-group-item">
               Дата публикации: {{ post.created|date:"d E Y" }}
             </li>
-            {% if post.group_id != NULL %}
-            <!-- если у поста есть группа -->   
+            {% if post.group_id != NULL %}   
               <li class="list-group-item">
-                Группа: {{ post.group }}<!-- Название группы -->
+                Группа: {{ post.group }}
                 <a href="{% url 'posts:group_list' post.group.slug %}">
                   Все записи группы
                 </a>
@@ -41,7 +40,7 @@
             Редактировать запись
           </a>
           {% endif %}
-          {% include 'includes/comment.html'%}
+          {% include 'posts/includes/comment.html'%}
         </article>
       </div> 
     {% endblock%}
