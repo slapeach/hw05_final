@@ -59,4 +59,4 @@ python3 manage.py runserver
 python manage.py runserver
 ```
 
-[![CI](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml)
+[![CI](https://github.com/slapeach/hw05_final/actions/workflows/python-app.yml/badge.svg)]
